@@ -4,30 +4,26 @@ A private study tutor for GIU students that runs in Claude Code. It downloads yo
 
 Every course fact it tells you comes from your files, with the file and page. If something isn't in your material, it says so instead of guessing.
 
-## What you need
+## Start from zero
 
-- A Claude subscription with Claude Code (Pro or Max).
-- A laptop: Mac, Windows or Linux. Windows and Linux are untested so far: report what breaks.
-- Your GIU portal / CMS login.
-- Git and Python 3. curl is built into macOS and Windows 10+. `/setup` checks all of this.
-- Optional: [Obsidian](https://obsidian.md) to browse your notes; poppler + tesseract to read scanned PDFs.
+About 30–45 minutes, once. You need a Claude subscription (Pro is enough), a Mac or Windows laptop and your GIU login. Claude installs everything else for you.
 
-## Start
+1. **Get Claude.** Subscribe on [claude.ai](https://claude.ai), install the desktop app from [claude.ai/download](https://claude.ai/download) and sign in.
+2. **Make an empty folder** for uni, e.g. `Documents/GIU`.
+3. **In the Claude app, open Code** and pick that folder.
+4. **Paste this message** and send it:
 
-1. **Make your own private copy.**
-   - With GitHub: on this repo, **Use this template → Create a new repository → Private**, then clone your copy.
-   - Without GitHub: **Code → Download ZIP** and unzip it. Everything works except phone check-ins.
-2. **Open the folder in Claude Code** (desktop app: open the folder; terminal: `cd` into it and run `claude`).
-3. **Type `/setup`.** It asks a few questions about you, then asks you to run one command in your own terminal to save your GIU login:
-
-   ```bash
-   python3 scripts/giu_login.py
+   ```text
+   Set me up with GIU Tutor: download https://github.com/cotcot09/giu-tutor into this folder (not a subfolder), then read its CLAUDE.md and .claude/commands/setup.md and do the setup with me.
    ```
 
-   On Windows use `python` instead of `python3`. Your password goes into your system's secure store (macOS Keychain, Windows DPAPI, Linux secret-tool). It never goes into the chat or the repo.
-4. **Wait for the first sync.** It downloads all your CMS files, makes a page per course, reads the course outlines for deadlines and plans your week.
+5. **Follow along.** Answer its questions. Click **Allow** when it wants to run something, and **Install** if your laptop asks. When a box asks for your GIU password, type it there, never in the chat.
 
-Then ask "what now".
+Next time: open the folder in Claude Code and say "what now".
+
+Built on a Mac. Windows and Linux are untested so far: tell us what breaks.
+
+**Already use GitHub?** On this repo click **Use this template → Create a new repository → Private**, clone your copy, open it in Claude Code and type `/setup`.
 
 ## Keep your copy private
 
@@ -79,7 +75,8 @@ Ignoring them is fine. They get shorter when you're busy and only ping when a de
 
 ## Troubleshooting
 
-- **"GIU password rejected"**: your password changed. Run `python3 scripts/giu_login.py` again.
+- **"GIU password rejected"**: your password changed. Say "update my GIU password" (or run `python3 scripts/giu_login.py --dialog`).
+- **No password box appeared**: ask Claude to do the login in the terminal instead.
 - **`python3` not found on Windows**: use `python` or `py`.
 - **Scanned PDFs have no text**: install poppler + tesseract (Mac `brew install poppler tesseract`, Windows `scoop install poppler tesseract`, Linux `sudo apt install poppler-utils tesseract-ocr`), then run `python3 scripts/pdf_text.py --scanned` and fill each note it lists with `--fill`.
 

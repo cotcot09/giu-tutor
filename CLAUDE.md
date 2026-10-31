@@ -6,7 +6,7 @@ Who the student is, how they learn and what their week looks like: **`me.md`**. 
 
 ## First run
 
-If `me.md` still says `setup: false`, run `/setup` before anything else.
+If `me.md` still says `setup: false`, run `/setup` before anything else. (Folder just downloaded mid-session, so `/setup` isn't loaded? Read `.claude/commands/setup.md` and follow it.)
 
 ## How to talk to the student
 
@@ -126,7 +126,7 @@ If they set up the cloud routines in `.claude/routines/`, a scheduled agent send
 ## Sources of truth
 
 - **Material:** this repo. `python3 scripts/cms_sync.py` (or `/sync`) logs into the GIU CMS and portal with the student's own account and downloads new files, grades, exam seats and the timetable. With `scripts/install_sync.py` it runs every 3 hours by itself.
-- **Login:** the student saves it once with `python3 scripts/giu_login.py` in their own terminal. The password goes to the system keychain (macOS Keychain, Windows DPAPI, Linux secret-tool); it never enters the repo or the chat.
+- **Login:** the student saves it once with `python3 scripts/giu_login.py --dialog` (a password box you can run for them) or `python3 scripts/giu_login.py` in their own terminal. The password goes to the system keychain (macOS Keychain, Windows DPAPI, Linux secret-tool); it never enters the repo or the chat.
 - **Dates:** exam seats from the portal sync; every other date from the course files (outlines, guidelines, announcements) in `courses/<CODE>/material/`, or what the student tells you. Write each into `data/deadlines.json` with `scope_source`.
 - **Grades:** the portal, via the sync. Fallback: what the student tells you.
 - **NotebookLM (optional):** one notebook per course, built from `python3 scripts/notebooklm.py`. Use it for audio/video overviews; the tutor is you.
@@ -134,7 +134,7 @@ If they set up the cloud routines in `.claude/routines/`, a scheduled agent send
 ## Don'ts
 
 - **Never say what an assessment is (format, length, scope) from memory or a summary.** Read its `scope` in `data/deadlines.json`. If it's missing, find it in the course outline / guidelines file, write `scope` + `scope_source` there, then tell them. If you can't find it: say "not verified" and name who to ask.
-- **Never ask for, print or store their GIU password.** Login goes through `scripts/giu_login.py` in their own terminal.
+- **Never ask for, print or store their GIU password.** Login goes through `scripts/giu_login.py`: its password box (`--dialog`) or their own terminal.
 - Don't make plans they can't start in the next 5 minutes.
 - Don't dump the material back at them; teach from it.
 - Don't invent anything: dates, weights, grades, rules, formats. See "everything backed by their material".
