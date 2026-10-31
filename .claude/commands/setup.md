@@ -23,10 +23,12 @@ Set this workspace up for a new student. Keep every message short (CLAUDE.md "Ho
 
 6. **Background sync (recommended).** Run `python3 scripts/install_sync.py`. It syncs every 3 hours while the laptop is on (Mac LaunchAgent, Windows Task Scheduler, Linux cron).
 
-7. **Plan.** Run the /plan steps, then `python3 scripts/now.py`.
+7. **NotebookLM (optional).** Offer it in one line: audio/video overviews of each course. If yes: run `python3 scripts/notebooklm.py`, then they make one notebook per course on notebooklm.google.com named "<CODE> · <course title>" and add `notebooklm/<CODE>.md`. Browser tools available → offer to do it for them.
 
-8. **Save.** `git add -A && git commit -m "setup: <name>"`. If there is a remote, push. Remind them once: their repo must stay **private** (it holds their grades and GIU's files).
+8. **Plan.** Run the /plan steps, then `python3 scripts/now.py`.
 
-9. **Phone check-ins (optional, later).** Needs their repo on GitHub (private). Point them to README "Phone check-ins". Don't set it up unless they ask.
+9. **Save.** `git add -A && git commit -m "setup: <name>"`. If there is a remote, push. Remind them once: their repo must stay **private** (it holds their grades and GIU's files).
 
-10. End with the one next action from NOW.md and offer to start a 20-minute block.
+10. **Phone check-ins (optional, later).** Needs their repo on GitHub (private). Point them to README "Phone check-ins". Don't set it up unless they ask.
+
+11. End with the one next action from NOW.md and offer to start a 20-minute block.

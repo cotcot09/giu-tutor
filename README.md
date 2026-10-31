@@ -46,6 +46,7 @@ Open the folder in Claude Code and say what you want, or use a command:
 | "summarize lecture 3" | `/summary` | A short note in the course folder |
 | "build X" | `/build X` | Learn by coding a tiny program |
 | "cheat sheet X" | `/revise X pdf` | Revision slides or a 1-page PDF |
+| "video on X" | `/revise X video` | A NotebookLM video or audio overview (see below) |
 | "plan" | `/plan` | Next 7 days, around your week |
 | "sync" | `/sync` | New CMS files, grades, exam seats now |
 | "done" | `/done` | Logs the session and saves |
@@ -56,6 +57,16 @@ Open the folder in Claude Code and say what you want, or use a command:
 
 - **Background sync** every 3 hours while you're logged in: `python3 scripts/install_sync.py` (`/setup` offers it). Status and log: `python3 scripts/install_sync.py --status`. Remove: `--remove`.
 - **Scanned PDFs** are read with OCR during the sync if poppler and tesseract are installed.
+
+## NotebookLM (optional)
+
+Turn a course into audio overviews, video overviews and mind maps with [NotebookLM](https://notebooklm.google.com) (free with a Google account), built from the same material.
+
+1. Ask the tutor "make my NotebookLM packs", or run `python3 scripts/notebooklm.py`. It writes one file per course to `notebooklm/` (kept out of git).
+2. In NotebookLM, make one notebook per course named `<CODE> · <course title>` and add that course's file as a source.
+3. Then say "video on X" or "audio on X". The tutor rebuilds the pack. If Claude can use your browser (Claude in Chrome), it updates the notebook and starts the overview for you; if not, it tells you which file to add and which button to press.
+
+Rebuild the packs after a lot of new material arrives.
 
 ## Phone check-ins (optional)
 

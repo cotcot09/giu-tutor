@@ -62,7 +62,7 @@ On Windows, use `python` (or `py`) wherever this repo says `python3` if `python3
 | "explain X" | `/explain X` | Teach from the material, then check understanding |
 | "summarize X" | `/summary X` | Tight summary of a file/lecture into `courses/<CODE>/notes/` |
 | "build X" | `/build X` | Code-to-learn lab: a 15–25 min mini program that forces understanding |
-| "revision slides X" / "cheat sheet X" | `/revise X [slides\|pdf\|video]` | Revision deck or 1-page PDF from material + weak spots |
+| "revision slides X" / "cheat sheet X" / "video on X" | `/revise X [slides\|pdf\|video]` | Revision deck, 1-page PDF, or NotebookLM audio/video, from material + weak spots |
 | "done" | `/done` | Log, update tracker, regenerate NOW.md, commit, push |
 | "plan" | `/plan` | Re-plan the next 7 days into `data/next.json` |
 | "sync" | `/sync` | Pull new CMS files, grades, exam seats and timetable now |
