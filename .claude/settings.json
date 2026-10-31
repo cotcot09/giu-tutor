@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 scripts/now.py)",
+      "Bash(python3 scripts/index.py)",
+      "Bash(python3 scripts/pdf_text.py:*)",
+      "Bash(python3 scripts/checkin_lint.py:*)",
+      "Bash(python3 scripts/notebooklm.py:*)",
+      "Bash(python3 labs/:*)",
+      "Bash(git pull:*)",
+      "Bash(git status:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)"
+    ]
+  }
+}
